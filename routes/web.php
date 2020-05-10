@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('login');
 });
 
 Auth::routes();
@@ -22,3 +22,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// data tables routes
+Route::get('user-get-datatable', 'UserController@getDatatable')->name('user.datatable');
+
+
+
+// resource routes
+Route::resource('/user', 'UserController', resourceNames('user'));
